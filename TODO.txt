@@ -1,0 +1,13 @@
+=== TODO ===
+
+== First steps ==
+- Make placeholder pages for:
+    * Company creation
+    * Company info
+    * Industry building
+- Create a few default products with which to test production/selling
+
+
+=== DONE ===
+- Registration/sessions/login
+- Basic DB schema
