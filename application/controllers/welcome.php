@@ -8,6 +8,7 @@ class Welcome extends CI_Controller
 
 		$this->load->helper('url');
 		$this->load->library('tank_auth');
+		$this->load->model('Company_model');
 	}
 
 	function index()
@@ -17,6 +18,7 @@ class Welcome extends CI_Controller
 		} else {
 			$data['user_id']	= $this->tank_auth->get_user_id();
 			$data['username']	= $this->tank_auth->get_username();
+			$data['company']	= $this->Company_model->get_companies_by_user($data['user_id']);
 			$this->load->view('welcome', $data);
 		}
 	}
