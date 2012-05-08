@@ -5,7 +5,7 @@ Hi, <strong><?php echo $username; ?></strong>! You are logged in now. <?php echo
 <hr>
 
 <?php
-    if ($data['company']) {
+    if ($company) {
         echo 'Your company is ' . $company . '.';
     }
     else {
