@@ -6,7 +6,6 @@ class Company extends CI_Controller {
 		parent::__construct();
 
 		$this->load->helper('url');
-        $this->load->library('form_validation');
 		$this->load->library('tank_auth');
 		$this->load->model('Company_model');
 	}
@@ -23,10 +22,10 @@ class Company extends CI_Controller {
             }
             else {
                 $data['error'] = NULL;
+                $this->load->helper('form');
+                $this->load->library('form_validation');
                 
                 if ($this->form_validation->run() == FALSE) {
-                    $this->load->helper('form');
-                    $this->load->library('form_validation');
                     $this->form_validation->set_rules('company_name', 'Company Name', 'required');
                 }
                 else {
