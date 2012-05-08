@@ -14,33 +14,33 @@ class Company extends CI_Controller {
         if (!$this->tank_auth->is_logged_in()) {
 			redirect('/auth/login/');
 		}
+		
+		$user_id = $this->tank_auth->get_user_id();
+		$comps = $this->Company_model->get_companies_by_user($user_id);
+		if ($comps) {
+			$data['error'] = 'You already have a company.';
+			$this->load->view('new_company', $data);
+		}
 		else {
-            $user_id = $this->tank_auth->get_user_id();
-            $comps = $this->Company_model->get_companies_by_user($user_id);
-            if ($comps) {
-                $data['error'] = 'You already have a company.';
-                $this->load->view('new_company', $data);
-            }
-            else {
-                $data['error'] = NULL;
-                $this->load->helper('form');
-                $this->load->library('form_validation');
-                
-                if ($this->form_validation->run() == FALSE) {
-                    $this->form_validation->set_rules('company_name', 'Company Name', 'required');
-                    $this->load->view('new_company', $data);
-                }
-                else {
-                    $c_name = $this->form_validation->set_value('company_name');
-                    $c_name = htmlspecialchars($c_name);
-                    $result = $this->Company_model->new_company($user_id, $c_name);
-                    //$data['creation'] = $result;
-                    print_r($result); die();
-                }
-                
-            }
-            
-        }
+			$data['error'] = NULL;
+			$this->load->helper('form');
+			$this->load->library('form_validation');
+			
+			$this->form_validation->set_rules('company_name', 'Company Name', 'required');
+			
+			if ($this->form_validation->run() == FALSE) {
+				
+				$this->load->view('new_company', $data);
+			}
+			else {
+				$c_name = $this->form_validation->set_value('company_name');
+				$c_name = htmlspecialchars($c_name);
+				$result = $this->Company_model->new_company($user_id, $c_name);
+				//$data['creation'] = $result;
+				print_r($result); die();
+			}
+			
+		}
         
     }
     
