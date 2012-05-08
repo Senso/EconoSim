@@ -10,7 +10,7 @@
     }
     else {
         echo validation_errors();
-        echo form_open('new_company');
+        echo form_open('new');
 ?>
     
         <h5>Company Name</h5>

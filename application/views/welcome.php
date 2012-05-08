@@ -9,7 +9,7 @@ Hi, <strong><?php echo $username; ?></strong>! You are logged in now. <?php echo
         echo 'Your company is ' . $company . '.';
     }
     else {
-        echo 'You do not have a company created yet.';
+        echo 'You do not have a company created yet. <a href="/company/new/">Create one</a>.';
     }
 ?>
 
