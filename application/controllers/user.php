@@ -13,7 +13,7 @@ class User extends CI_Controller {
 	function info($user_id) {
 		$data['user_info'] = $this->users->get_user_by_id($user_id, 1);
 		if ($data['user_info']) {
-			$data['comp_info'] = $this->Company_model->get_companies_by_user($user_info->id);
+			$data['comp_info'] = $this->Company_model->get_companies_by_user($data['user_info']->id);
 		}
 		
 		$this->load->view('user_info', $data);
