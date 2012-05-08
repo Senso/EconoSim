@@ -10,7 +10,7 @@ class Company extends CI_Controller {
 		$this->load->model('Company_model');
 	}
     
-    function new($name) {
+    function create($name) {
         if (!$this->tank_auth->is_logged_in()) {
 			redirect('/auth/login/');
 		}
