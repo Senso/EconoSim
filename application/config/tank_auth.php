@@ -7,8 +7,8 @@
 | These details are used in emails sent by authentication library.
 |--------------------------------------------------------------------------
 */
-$config['website_name'] = 'Your project';
-$config['webmaster_email'] = 'webmaster@your-site.com';
+$config['website_name'] = 'EconoSim';
+$config['webmaster_email'] = 'sensoz@gmail.com';
 
 /*
 |--------------------------------------------------------------------------
@@ -116,7 +116,7 @@ $config['captcha_height'] = 50;
 $config['captcha_font_size'] = 14;
 $config['captcha_grid'] = FALSE;
 $config['captcha_expire'] = 180;
-$config['captcha_case_sensitive'] = TRUE;
+$config['captcha_case_sensitive'] = FALSE;
 
 /*
 |--------------------------------------------------------------------------
