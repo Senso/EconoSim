@@ -6,7 +6,7 @@
 
 <?php
     if ($error) {
-        echo <strong><font color='red'>$error</font></strong>;
+        echo '<strong><font color="red">$error</font></strong>';
     }
     else {
         echo validation_errors();
