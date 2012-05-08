@@ -11,7 +11,7 @@ class Company_model extends CI_Model {
         $this->db->where('owner', $user_id);
         $query = $this->db->get($this->table_name);
         if ($query->num_rows() > 0) {
-            return $query->rows();
+            return $query->result();
         }
 		return NULL;
     }
