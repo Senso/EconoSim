@@ -23,7 +23,7 @@ class Company_model extends CI_Model {
             return $query->row();
         }
 		return NULL;
-    }	
+    }
 	
 	function new_company($user_id, $c_name) {
 		$data = array('name' => $c_name, 'owner' => $user_id);
