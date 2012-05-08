@@ -23,7 +23,7 @@ class Company extends CI_Controller {
             else {
                 $data['error'] = NULL;
                 
-                if ($this->form_validation->run() == FALSE) {}
+                if ($this->form_validation->run() == FALSE) {
                     $this->load->helper('form');
                     $this->load->library('form_validation');
                     $this->form_validation->set_rules('company_name', 'Company Name', 'required');
