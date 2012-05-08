@@ -8,6 +8,10 @@ class User extends CI_Controller {
 		$this->load->library('tank_auth');
 		$this->load->model('Company_model');
 		$this->load->model('users');
+		
+		if (!$this->tank_auth->is_logged_in()) {
+			redirect('/auth/login/');
+		}
 	}
 
 	function info($user_id) {

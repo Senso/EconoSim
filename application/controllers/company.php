@@ -11,10 +11,6 @@ class Company extends CI_Controller {
 	}
     
     function create() {
-        if (!$this->tank_auth->is_logged_in()) {
-			redirect('/auth/login/');
-		}
-		
 		$user_id = $this->tank_auth->get_user_id();
 		$comps = $this->Company_model->get_companies_by_user($user_id);
 		if ($comps) {
