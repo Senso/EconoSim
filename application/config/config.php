@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://donginger.info/econosim/';
+$config['base_url']	= 'http://donginger.info/';
 
 /*
 |--------------------------------------------------------------------------
