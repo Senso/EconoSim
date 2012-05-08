@@ -1,0 +1,5 @@
+      [paste.app_factory]
+      main = econosim:main
+      [console_scripts]
+      initialize_EconoSim_db = econosim.scripts.initializedb:main
+      
