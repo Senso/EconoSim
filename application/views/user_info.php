@@ -2,7 +2,7 @@
 
 <?php
 foreach ($comp_info as $key => $value) {
-    echo "Company: " . $value->name . "<br />";
+    echo "Company: <a href='/company/info/" . $value->id . "'>" . $value->name . "</a> <br />";
 }
 
 ?>
