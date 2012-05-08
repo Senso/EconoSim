@@ -38,11 +38,14 @@ class Company extends CI_Controller {
 				$result = $this->Company_model->new_company($user_id, $c_name);
 				//$data['creation'] = $result;
 				print_r($result); die();
-			}
-			
+			}	
 		}
-        
     }
+	
+	function info($c_id) {
+		$data['info'] = $this->Company_model->get_company_by_id($c_id);
+		$this->load->view('company_info', $data);
+	}
     
 }
     
