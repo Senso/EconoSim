@@ -15,4 +15,8 @@ class Company_model extends CI_Model {
         }
 		return NULL;
     }
+	
+	function new_company() {
+		
+	}
 }

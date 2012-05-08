@@ -15,7 +15,8 @@ class Welcome extends CI_Controller
 	{
 		if (!$this->tank_auth->is_logged_in()) {
 			redirect('/auth/login/');
-		} else {
+		}
+		else {
 			$data['user_id']	= $this->tank_auth->get_user_id();
 			$data['username']	= $this->tank_auth->get_username();
 			$data['company']	= $this->Company_model->get_companies_by_user($data['user_id']);
