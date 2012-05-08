@@ -38,7 +38,7 @@ class Company extends CI_Controller {
                 
             }
             
-            $this->load->view('new_company', $data);
+            //$this->load->view('new_company', $data);
             
         }
         
