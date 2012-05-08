@@ -36,8 +36,7 @@ class Company extends CI_Controller {
 				$c_name = $this->form_validation->set_value('company_name');
 				$c_name = htmlspecialchars($c_name);
 				$result = $this->Company_model->new_company($user_id, $c_name);
-				//$data['creation'] = $result;
-				print_r($result); die();
+				redirect('/');
 			}	
 		}
     }
