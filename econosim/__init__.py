@@ -19,8 +19,7 @@ def main(global_config, **settings):
     config.add_route('home', '/')
     
     config.add_route('login', '/login')
-    config.add_view(login, route_name='login',
-                    renderer=render_template, permission=NO_PERMISSION_REQUIRED)
+    config.add_view(login, route_name='login', permission=NO_PERMISSION_REQUIRED)
     
     config.scan()
     return config.make_wsgi_app()
