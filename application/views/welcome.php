@@ -6,7 +6,7 @@ Hi, <strong><?php echo $username; ?></strong>! You are logged in now. <?php echo
 
 <?php
     if ($data['company']) {
-        echo 'Your company is ' . $data['company'] . '.';
+        echo 'Your company is ' . $company . '.';
     }
     else {
         echo 'You do not have a company created yet.';
