@@ -19,6 +19,7 @@ class Company extends CI_Controller {
             $comps = $this->Company_model->get_companies_by_user($user_id);
             if ($comps) {
                 $data['error'] = 'You already have a company.';
+                $this->load->view('new_company', $data);
             }
             else {
                 $data['error'] = NULL;
@@ -27,6 +28,7 @@ class Company extends CI_Controller {
                 
                 if ($this->form_validation->run() == FALSE) {
                     $this->form_validation->set_rules('company_name', 'Company Name', 'required');
+                    $this->load->view('new_company', $data);
                 }
                 else {
                     $c_name = $this->form_validation->set_value('company_name');
@@ -37,8 +39,6 @@ class Company extends CI_Controller {
                 }
                 
             }
-            
-            //$this->load->view('new_company', $data);
             
         }
         
