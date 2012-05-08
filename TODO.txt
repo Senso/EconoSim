@@ -2,7 +2,7 @@
 
 == First steps ==
 - Make placeholder pages for:
-    * Company info
+    * Player info page
     * Industry building
 - Create a few default products with which to test production/selling
 
@@ -11,3 +11,4 @@
 - Registration/sessions/login
 - Basic DB schema
 - Very basic company creation
+- Basic company info page
