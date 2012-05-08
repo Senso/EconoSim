@@ -16,7 +16,11 @@ class Company_model extends CI_Model {
 		return NULL;
     }
 	
-	function new_company() {
-		
+	function new_company($user_id, $c_name) {
+		$data = array('name' => $c_name, 'owner' => $user_id);
+		if ($this->db->insert($this->table_name, $data)) {
+			return $this->db->insert_id();
+		}
+		return NULL;
 	}
 }

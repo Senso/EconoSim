@@ -23,10 +23,18 @@ class Company extends CI_Controller {
             else {
                 $data['error'] = NULL;
                 
-                $this->load->helper('form');
-                $this->load->library('form_validation');
-                
-                $this->form_validation->set_rules('company_name', 'Company Name', 'required');
+                if ($this->form_validation->run() == FALSE) {}
+                    $this->load->helper('form');
+                    $this->load->library('form_validation');
+                    $this->form_validation->set_rules('company_name', 'Company Name', 'required');
+                }
+                else {
+                    $c_name = $this->form_validation->set_value('company_name');
+                    $c_name = htmlspecialchars($c_name);
+                    $result = $this->Company_model->new_company($user_id, $c_name);
+                    //$data['creation'] = $result;
+                    redirect('/');
+                }
                 
             }
             
