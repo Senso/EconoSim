@@ -6,6 +6,7 @@ class Company extends CI_Controller {
 		parent::__construct();
 
 		$this->load->helper('url');
+        $this->load->library('form_validation');
 		$this->load->library('tank_auth');
 		$this->load->model('Company_model');
 	}
