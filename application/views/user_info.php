@@ -2,7 +2,7 @@
 
 <?php
 foreach ($comp_info as $key => $value) {
-    echo "Company: " . $value->name; . "<br />";
+    echo "Company: " . $value->name . "<br />";
 }
 
 ?>
