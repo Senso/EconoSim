@@ -1,4 +1,4 @@
 EconoSim
 ========
 
-Some kind of web-based economical sim
+Some kind of web-based economical sim?!
