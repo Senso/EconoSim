@@ -6,7 +6,7 @@ class User extends CI_Controller {
 		parent::__construct();
 
 		$this->load->library('tank_auth');
-		$this->load->model('Company');
+		$this->load->model('Company_m');
 		$this->load->model('users');
 		
 		if (!$this->tank_auth->is_logged_in()) {
@@ -17,7 +17,7 @@ class User extends CI_Controller {
 	function info($user_id) {
 		$data['user_info'] = $this->users->get_user_by_id($user_id, 1);
 		if ($data['user_info']) {
-			$data['comp_info'] = $this->Company->get_companies_by_user($data['user_info']->id);
+			$data['comp_info'] = $this->Company_m->get_companies_by_user($data['user_info']->id);
 		}
 		
 		$this->load->view('user_info', $data);
