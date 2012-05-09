@@ -16,8 +16,8 @@ class Building_m extends CI_Model {
         //$this->db->where('id', $b_id);
         //$query = $this->db->get($this->table_name);
 		$result = $this->db->query($query);
-        if ($result->num_rows() > 0) {
-            return $result->result();
+        if ($result->num_rows() == 1) {
+            return $result->row();
         }
 		return NULL;
     }
