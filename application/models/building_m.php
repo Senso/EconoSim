@@ -4,6 +4,7 @@ class Building_m extends CI_Model {
 
     function __construct() {
         parent::__construct();
+		$this->table_name = 'player_buildings';
     }
 
     function get_building_by_id($b_id) {
