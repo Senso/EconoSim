@@ -13,7 +13,7 @@ class Template {
         $comp_id = $CI->Company_m->get_company_by_user($user_id);
         
         if ($comp_id) {
-            $data['comp_id'] = $comp_id[0]->id;
+            $data['comp_id'] = $comp_id->id;
         }
         else {
             $data['comp_id'] = 0;

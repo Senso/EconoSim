@@ -19,7 +19,7 @@ class Welcome extends CI_Controller
 		else {
 			$data['user_id'] = $this->tank_auth->get_user_id();
 			$data['username'] = $this->tank_auth->get_username();
-			$data['company'] = $this->Company_m->get_companies_by_user($data['user_id']);
+			$data['company'] = $this->Company_m->get_company_by_user($data['user_id']);
 			
 			$this->template->show('welcome', 'Landing Page', $data);
 		}

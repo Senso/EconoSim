@@ -17,7 +17,7 @@ class Company extends CI_Controller {
 			$data['error'] = 'You already have a company.';
 		}
 		else {
-			//$content_data['error'] = NULL;
+			$data['error'] = NULL;
 			$this->load->helper('form');
 			$this->load->library('form_validation');
 			
