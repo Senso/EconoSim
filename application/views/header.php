@@ -13,7 +13,7 @@
     <ul id="list-nav">
         <li><a href="/">Home</a></li>
         <li><a href="/company/info/">Company</a></li>
-        <li><a href="#">Buildings</a></li>
+        <li><a href="/company/buildings/">Buildings</a></li>
         <li><a href="#">Market</a></li>
         <li><a href="#">R&D</a></li>
     </ul>
