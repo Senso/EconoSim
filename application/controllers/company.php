@@ -38,9 +38,9 @@ class Company extends CI_Controller {
 	
 	function info($c_id) {
 		$content_data['info'] = $this->Company_m->get_company_by_id($c_id);
-		if ($data['info']) {
+		if ($content_data['info']) {
 			$this->load->model('users');
-			$owner_info = $this->users->get_user_by_id($data['info']->owner, 1);
+			$owner_info = $this->users->get_user_by_id($content_data['info']->owner, 1);
 			$content_data['owner_info'] = $owner_info;
 			
 			$data['title'] = 'Company Info';
