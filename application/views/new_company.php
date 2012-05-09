@@ -1,8 +1,3 @@
-<html>
-<head>
-<title>New Company</title>
-</head>
-<body>
 
 <?php
     if ($error) {
@@ -24,5 +19,3 @@
     }
 ?>
 
-</body>
-</html>
