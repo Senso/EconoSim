@@ -48,7 +48,7 @@ class Company extends CI_Controller {
 		}
 	}
 	
-	function building() {
+	function buildings() {
 		// List all owned buildings
 		$user_id = $this->tank_auth->get_user_id();
 		$comp = $this->Company_m->get_company_by_user($user_id);
