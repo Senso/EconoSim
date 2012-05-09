@@ -5,6 +5,8 @@ class Template {
     public function show($view, $title, $data) {
         $CI =& get_instance();
         
+        $data['logged_on'] = $CI->tank_auth->is_logged_in();
+        
         $data['title'] = $title;
         
         $user_id = $CI->tank_auth->get_user_id();

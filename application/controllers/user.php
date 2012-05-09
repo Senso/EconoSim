@@ -15,13 +15,11 @@ class User extends CI_Controller {
 	}
 
 	function info($user_id) {
-		$content_data['user_info'] = $this->users->get_user_by_id($user_id, 1);
-		if ($content_data['user_info']) {
-			$content_data['comp_info'] = $this->Company_m->get_companies_by_user($content_data['user_info']->id);
+		$data['user_info'] = $this->users->get_user_by_id($user_id, 1);
+		if ($data['user_info']) {
+			$data['comp_info'] = $this->Company_m->get_companies_by_user($content_data['user_info']->id);
 		
-			$data['title'] = 'Player Info';
-			$data['content'] = $this->load->view('user_info', $content_data, true);
-			$this->load->view('body', $data);
+			$this->template->show('user_info', 'Player Info', $data);
 		}
 		else {
 			// load error

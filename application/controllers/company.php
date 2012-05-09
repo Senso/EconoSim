@@ -14,7 +14,7 @@ class Company extends CI_Controller {
 		$user_id = $this->tank_auth->get_user_id();
 		$comps = $this->Company_m->get_companies_by_user($user_id);
 		if ($comps) {
-			$content_data['error'] = 'You already have a company.';
+			$data['error'] = 'You already have a company.';
 		}
 		else {
 			//$content_data['error'] = NULL;
@@ -31,21 +31,17 @@ class Company extends CI_Controller {
 			}
 		}
 		
-		$data['title'] = 'New Company';
-		$data['content'] = $this->load->view('new_company', $content_data, true);
-		$this->load->view('body', $data);
+		$this->template->show('new_company', 'New Company', $data);
     }
 	
 	function info($c_id) {
-		$content_data['info'] = $this->Company_m->get_company_by_id($c_id);
-		if ($content_data['info']) {
+		$data['info'] = $this->Company_m->get_company_by_id($c_id);
+		if ($data['info']) {
 			$this->load->model('users');
-			$owner_info = $this->users->get_user_by_id($content_data['info']->owner, 1);
-			$content_data['owner_info'] = $owner_info;
+			$owner_info = $this->users->get_user_by_id($data['info']->owner, 1);
+			$data['owner_info'] = $owner_info;
 			
-			$data['title'] = 'Company Info';
-			$data['content'] = $this->load->view('company_info', $content_data, true);
-			$this->load->view('body', $data);
+			$this->template->show('new_company', 'Company Info', $data);
 		}
 		else {
 			// load error
