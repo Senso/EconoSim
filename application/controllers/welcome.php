@@ -21,11 +21,7 @@ class Welcome extends CI_Controller
 			$content_data['username'] = $this->tank_auth->get_username();
 			$content_data['company'] = $this->Company_m->get_companies_by_user($content_data['user_id']);
 			
-			$data['title'] = 'Landing Page';
-			$data['content'] = $this->load->view('welcome', $content_data, true);
-
-			$this->load->view('body', $data);
-		}
+			$this->template->show('welcome', 'Landing Page', $data);
 	}
 }
 
