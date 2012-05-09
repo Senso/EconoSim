@@ -7,7 +7,7 @@ class Building extends CI_Controller {
 
 		$this->load->helper('url');
 		$this->load->library('tank_auth');
-		$this->load->model('Company_m');
+		$this->load->model('Building_m');
 	}
     
 	function info($b_id) {
