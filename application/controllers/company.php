@@ -41,7 +41,7 @@ class Company extends CI_Controller {
 			$owner_info = $this->users->get_user_by_id($data['info']->owner, 1);
 			$data['owner_info'] = $owner_info;
 			
-			$this->template->show('new_company', 'Company Info', $data);
+			$this->template->show('company_info', 'Company Info', $data);
 		}
 		else {
 			// load error
