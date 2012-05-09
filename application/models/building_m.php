@@ -23,4 +23,18 @@ class Building_m extends CI_Model {
 	function new_building($c_id, $b_type) {
 
 	}
+	
+	function get_possible_production($b_id) {
+		$query = sprintf("SELECT production.id,output_prod,output_qty,(SELECT name FROM products WHERE production.output_prod = products.id) as name
+						 FROM production
+					WHERE building_required = (SELECT building_id
+												FROM player_buildings
+												WHERE player_buildings.id = '%s')", mysql_real_escape_string($b_id));
+		
+
+        $result = $this->db->query($query);
+		if ($query->num_rows() > 0) {
+            return $query->result();
+        }
+	}
 }
