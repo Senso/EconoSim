@@ -7,7 +7,7 @@ class Company_m extends CI_Model {
         $this->table_name = 'companies';
     }
     
-    function get_companiy_by_user($user_id) {
+    function get_company_by_user($user_id) {
         $this->db->where('owner', $user_id);
         $query = $this->db->get($this->table_name);
         if ($query->num_rows() == 1) {
