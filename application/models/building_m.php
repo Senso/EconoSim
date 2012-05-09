@@ -33,8 +33,8 @@ class Building_m extends CI_Model {
 		
 
         $result = $this->db->query($query);
-		if ($query->num_rows() > 0) {
-            return $query->result();
+		if ($result->num_rows() > 0) {
+            return $result->result();
         }
 	}
 }
