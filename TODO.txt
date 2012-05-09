@@ -3,8 +3,9 @@
 == First steps ==
 - Make placeholder pages for:
     * Industry building
+    * Public market
+    * Warehouse page
 - Create a few default products with which to test production/selling
-- create buildings table, which will define what types of stores/factories are available
 - Add starting cash to new companies
 - make sure all input/output is sanitized, special chars removed, etc.
 
@@ -16,3 +17,4 @@
 - Basic company info page
 - Basic player info page
 - basic header/footer
+- buildings table
