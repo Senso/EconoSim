@@ -11,6 +11,8 @@ class Building extends CI_Controller {
 	}
     
 	function info($b_id) {
+        $user_id = $this->tank_auth->get_user_id();
+        
 		$data['info'] = $this->Building_m->get_building_by_id($b_id);
         $this->template->show('building_info', 'Building Info', $data);
 	}
