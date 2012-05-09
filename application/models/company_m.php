@@ -38,17 +38,24 @@ class Company_m extends CI_Model {
 		$stores    = NULL;
 		
 		// Factories
-		$this->db->where('company', $c_id);
-        $query = $this->db->get('player_factories');
-        if ($query->num_rows() > 0) {
-            $factories = $query->result();
+		
+		$query = "SELECT player_factories.id,building_id,(select name from buildings where player_factories.id = building_id) as name from player_factories";
+		
+		//$this->db->where('company', $c_id);
+        //$query = $this->db->get('player_factories');
+		$result = $this->db->query($query);
+        if ($result->num_rows() > 0) {
+            $factories = $result->result();
         }
 		
 		// Stores
-		$this->db->where('company', $c_id);
-        $query = $this->db->get('player_stores');
-        if ($query->num_rows() > 0) {
-            $stores = $query->result();
+		$query = "SELECT player_stores.id,building_id,(select name from buildings where player_stores.id = building_id) as name from player_stores";
+		
+		//$this->db->where('company', $c_id);
+        //$query = $this->db->get('player_stores');
+		$result = $this->db->query($query);
+        if ($result->num_rows() > 0) {
+            $stores = $result->result();
         }
 		
 		return array('factories' => $factories, 'stores' => $stores);
