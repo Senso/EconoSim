@@ -8,13 +8,11 @@ class Building_m extends CI_Model {
     }
 
     function get_building_by_id($b_id) {
-		$query = sprintf("SELECT player_buildings.id,building_id,type,company,
+		$query = sprintf("SELECT player_buildings.id,building_id,type,company,created
 						(select name from buildings where player_buildings.id = building_id) as name
 						FROM player_buildings
 						WHERE player_buildings.id = '%s'", mysql_real_escape_string($b_id));
 
-        //$this->db->where('id', $b_id);
-        //$query = $this->db->get($this->table_name);
 		$result = $this->db->query($query);
         if ($result->num_rows() == 1) {
             return $result->row();
