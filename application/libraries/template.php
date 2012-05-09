@@ -10,7 +10,7 @@ class Template {
         $data['title'] = $title;
         
         $user_id = $CI->tank_auth->get_user_id();
-        $comp_id = $CI->Company_m->get_companies_by_user($user_id);
+        $comp_id = $CI->Company_m->get_company_by_user($user_id);
         
         if ($comp_id) {
             $data['comp_id'] = $comp_id[0]->id;
