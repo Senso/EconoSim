@@ -4,7 +4,6 @@
 - Make placeholder pages for:
     * Industry building
 - Create a few default products with which to test production/selling
-- Added basic header/footer to all pages, with quick links to main pages
 - create buildings table, which will define what types of stores/factories are available
 - Add starting cash to new companies
 - make sure all input/output is sanitized, special chars removed, etc.
@@ -16,3 +15,4 @@
 - Very basic company creation
 - Basic company info page
 - Basic player info page
+- basic header/footer
