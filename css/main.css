@@ -1,0 +1,19 @@
+ul#list-nav {
+    margin:20px;
+    padding:0;
+    list-style:none;
+    width:525px;
+}
+
+ul#list-nav li {
+    display:inline
+}
+
+ul#list-nav li a {
+    text-decoration:none;
+    padding:5px 0;
+    width:100px;
+    background:#485e49;
+    color:#eee;
+    float:left;
+}
