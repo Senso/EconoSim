@@ -1,16 +1,20 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
 
 class Template {
+    
+    function __construct() {
+        $this->ci =& get_instance();
+        
+        $this->ci->load->model('Company_m');
+    }
 
     public function show($view, $title, $data) {
-        $CI =& get_instance();
-        
-        $data['logged_on'] = $CI->tank_auth->is_logged_in();
+        $data['logged_on'] = $this->ci->tank_auth->is_logged_in();
         
         $data['title'] = $title;
         
-        $user_id = $CI->tank_auth->get_user_id();
-        $comp_id = $CI->Company_m->get_company_by_user($user_id);
+        $user_id = $this->ci->tank_auth->get_user_id();
+        $comp_id = $this->ci->Company_m->get_company_by_user($user_id);
         
         if ($comp_id) {
             $data['comp_id'] = $comp_id->id;
@@ -19,8 +23,8 @@ class Template {
             $data['comp_id'] = 0;
         }
         
-        $data['content'] = $CI->load->view($view, $data, true);
-		$CI->load->view('body', $data);
+        $data['content'] = $this->ci->load->view($view, $data, true);
+		$this->ci->load->view('body', $data);
     }
 }
 
