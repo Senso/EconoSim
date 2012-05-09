@@ -9,11 +9,12 @@ class Template {
         
         $user_id = $CI->tank_auth->get_user_id();
         $comp_id = $CI->Company_m->get_companies_by_user($user_id);
+        
         if ($comp_id) {
             $data['comp_id'] = $comp_id[0]->id;
         }
         else {
-            $data['comp_id'] = 0
+            $data['comp_id'] = 0;
         }
         
         $data['content'] = $CI->load->view($view, $data, true);
