@@ -17,3 +17,7 @@ ul#list-nav li a {
     color:#eee;
     float:left;
 }
+
+div#header {
+    display: inline-block;
+}
