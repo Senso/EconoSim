@@ -14,7 +14,7 @@
         <li><a href="/">Home</a></li>
         <li><a href="/company/info/<?php echo $comp_id; ?>">Company</a></li>
         <li><a href="/company/buildings/">Buildings</a></li>
-        <li><a href="#">Market</a></li>
+        <li><a href="/market/">Market</a></li>
         <li><a href="#">R&D</a></li>
     </ul>
 </div>
