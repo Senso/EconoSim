@@ -53,7 +53,7 @@ class Company extends CI_Controller {
 		$user_id = $this->tank_auth->get_user_id();
 		$comp = $this->Company_m->get_company_by_user($user_id);
 		
-		$data = $this->Company_m->get_buildings_by_company($comp->id);
+		$data['buildings'] = $this->Company_m->get_buildings_by_company($comp->id);
 				
 		$this->template->show('company_buildings', 'Buildings', $data);
 	}

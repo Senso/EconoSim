@@ -42,6 +42,6 @@ class Company_m extends CI_Model {
             $buildings = $result->result();
         }
 		
-		return buildings;
+		return $buildings;
 	}
 }
