@@ -24,7 +24,7 @@ class Building extends CI_Controller {
                 $prod_id     = $product->id;
                 $output_name = $product->name;
                 
-                data['select'][$prod_id] = $output_name;
+                $data['select'][$prod_id] = $output_name;
             }
         }
         
