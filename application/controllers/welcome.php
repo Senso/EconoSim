@@ -22,6 +22,7 @@ class Welcome extends CI_Controller
 			$content_data['company'] = $this->Company_m->get_companies_by_user($content_data['user_id']);
 			
 			$this->template->show('welcome', 'Landing Page', $data);
+		}
 	}
 }
 
