@@ -7,11 +7,11 @@ class Company_m extends CI_Model {
         $this->table_name = 'companies';
     }
     
-    function get_companies_by_user($user_id) {
+    function get_companiy_by_user($user_id) {
         $this->db->where('owner', $user_id);
         $query = $this->db->get($this->table_name);
-        if ($query->num_rows() > 0) {
-            return $query->result();
+        if ($query->num_rows() == 1) {
+            return $query->row();
         }
 		return NULL;
     }
@@ -31,5 +31,27 @@ class Company_m extends CI_Model {
 			return $this->db->insert_id();
 		}
 		return NULL;
+	}
+	
+	function get_buildings_by_company($c_id) {
+		$factories = NULL;
+		$stores    = NULL;
+		
+		// Factories
+		$this->db->where('company', $c_id);
+        $query = $this->db->get('player_factories');
+        if ($query->num_rows() > 0) {
+            $factories = $query->result();
+        }
+		
+		// Stores
+		$this->db->where('company', $c_id);
+        $query = $this->db->get('player_stores');
+        if ($query->num_rows() > 0) {
+            $stores = $query->result();
+        }
+		
+		return array('factories' => $factories, 'stores' => $stores);
+		
 	}
 }
