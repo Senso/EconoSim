@@ -16,6 +16,6 @@
         <li><a href="#">Buildings</a></li>
         <li><a href="#">Market</a></li>
         <li><a href="#">R&D</a></li>
-    </ul
+    </ul>
 </div>
 
