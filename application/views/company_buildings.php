@@ -1,10 +1,11 @@
 
 <h3>Construction</3>
 <?php
-    form_open('building/new');
-    form_hidden('c_id', $c_id);
-    form_dropdown('building_type', $b_types);
-    form_submit();
+    echo validation_errors();
+    echo form_open('building/new');
+    echo form_hidden('c_id', $c_id);
+    echo form_dropdown('building_type', $b_types);
+    echo form_submit();
 ?>
 
 <h3>Factories</h3>
