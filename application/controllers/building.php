@@ -100,7 +100,7 @@ class Building extends CI_Controller {
 		$recipe_array = json_decode($recipe->products_required, $assoc = true);
 
 		$requirements = array();
-		foreach ($recipe_array as $prod_id => $qty) {
+		foreach ($recipe_array as $prod_name => $qty) {
 			$p = $this->Product_m->get_product_id_by_name($p_name);
 			$requirements[$p->id] = $qty;
 		}
