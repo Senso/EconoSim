@@ -26,7 +26,7 @@ class Building extends CI_Controller {
         $prod = $this->Building_m->get_possible_production($b_id);
         if ($prod) {
             foreach ($prod as $key => $product) {
-                $prod_id     = $product->id;
+                $prod_id     = $product->output_prod;
                 $output_name = $product->name;
                 
                 $data['select'][$prod_id] = $output_name;
@@ -91,6 +91,11 @@ class Building extends CI_Controller {
 		
 		$this->load->model('Product_m');
 		$recipe = $this->Product_m->get_required_products($p_id);
+		if (!$recipe) {
+	        $data['errors'] = "Product details not found.";
+            $this->template->show('building_info', 'Building Info', $data);		
+		}
+		
 		$recipe_array = json_decode($recipe, $assoc = true);
 		print_r($recipe_array);
         
