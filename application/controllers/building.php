@@ -81,6 +81,11 @@ class Building extends CI_Controller {
             $this->template->show('building_info', 'Building Info', $data);
         }
         
+        if ($prod_qty < 1) {
+            $data['errors'] = "Invalid quantity selected.";
+            $this->template->show('building_info', 'Building Info', $data);
+        }
+        
         
         
         // Check inventory for source materials
