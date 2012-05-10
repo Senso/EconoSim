@@ -98,9 +98,13 @@ class Building extends CI_Controller {
 		}
 		
 		$recipe_array = json_decode($recipe->products_required, $assoc = true);
+		if (!$recipe_array) {
+			$data['errors'] = "JSON product data is invalid.";
+            $this->template->show('building_info', 'Building Info', $data);	
+		}
 
 		$requirements = array();
-		foreach ($recipe_array as $prod_name => $qty) {
+		foreach ($recipe_array as $p_name => $qty) {
 			$p = $this->Product_m->get_product_id_by_name($p_name);
 			$requirements[$p->id] = $qty;
 		}
