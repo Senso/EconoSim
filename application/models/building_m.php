@@ -21,7 +21,7 @@ class Building_m extends CI_Model {
     }
 	
 	function get_building_owner($b_id) {
-		$query = sprintf("SELECT company,(SELECT owner FROM companies WHERE id = company) as owner FROM player_buildings WHERE id = '%s'");
+		$query = sprintf("SELECT company,(SELECT owner FROM companies WHERE id = company) as owner FROM player_buildings WHERE id = '%s'", mysql_real_escape_string($b_id));
 		
 		$result = $this->db->query($query);
         if ($result->num_rows() == 1) {
