@@ -3,11 +3,11 @@
 == First steps ==
 - Make placeholder pages for:
     * Industry building
-    * Warehouse page
 - Create a few default products with which to test production/selling
 - Add starting cash to new companies
 - make sure all input/output is sanitized, special chars removed, etc.
 - cron script that populates the market with products missing
+- 'guest' header, for login/reg pages
 
 
 === DONE ===
@@ -20,3 +20,4 @@
 - buildings table
 - barebone market page
 - basic form for production choosing, in factories
+- Basic warehouse pages
