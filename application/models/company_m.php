@@ -36,7 +36,10 @@ class Company_m extends CI_Model {
 	function get_buildings_by_company($c_id) {
 		$buildings = NULL;
 		
-		$query = "SELECT player_buildings.id,building_id,type,(select name from buildings where player_buildings.id = building_id) as name from player_buildings";
+		$query = sprintf("SELECT player_buildings.id,building_id,type,
+			(select name from buildings where player_buildings.id = building_id) as name
+			from player_buildings
+			WHERE company = '%s'", mysql_real_escape_string($c_id));
 		$result = $this->db->query($query);
         if ($result->num_rows() > 0) {
             $buildings = $result->result();
