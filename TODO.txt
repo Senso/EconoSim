@@ -8,6 +8,10 @@
 - make sure all input/output is sanitized, special chars removed, etc.
 - cron script that populates the market with products missing
 - 'guest' header, for login/reg pages
+- added an autoloaded function that created an obj with user id, comp id, etc.
+- two external crons:
+    * one that puts products on sale on the market
+    * one that checks if factory production is completed
 
 
 === DONE ===
@@ -21,3 +25,4 @@
 - barebone market page
 - basic form for production choosing, in factories
 - Basic warehouse pages
+- basic factory construction
