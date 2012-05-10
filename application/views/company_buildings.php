@@ -1,5 +1,5 @@
 
-<h3>Construction</3>
+<h3>Construction</h3>
 <?php
     echo validation_errors();
     echo form_open('building/build');
