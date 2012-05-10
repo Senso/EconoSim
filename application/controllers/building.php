@@ -55,6 +55,8 @@ class Building extends CI_Controller {
         $new_prod = $post;
 		$p_id = $new_prod['choose_prod'];
         $b_id = $post['b_id'];
+
+		$data['info'] = $this->Building_m->get_building_by_id($b_id);
         // Array ( [prod_qty] => 100 [choose_prod] => 2 )
         
         // Make sure the player owns that factory.
@@ -82,7 +84,7 @@ class Building extends CI_Controller {
             $this->template->show('building_info', 'Building Info', $data);
         }
         
-        if ($prod_qty < 1) {
+        if ($post['prod_qty'] < 1) {
             $data['errors'] = "Invalid quantity selected.";
             $this->template->show('building_info', 'Building Info', $data);
         }
