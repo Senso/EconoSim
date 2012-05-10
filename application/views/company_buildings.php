@@ -2,7 +2,7 @@
 <h3>Construction</3>
 <?php
     echo validation_errors();
-    echo form_open('building/new');
+    echo form_open('building/build');
     echo form_hidden('c_id', $c_id);
     echo form_dropdown('building_type', $b_types);
     echo form_submit('build_submit', 'Build');

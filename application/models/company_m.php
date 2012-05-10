@@ -44,4 +44,9 @@ class Company_m extends CI_Model {
 		
 		return $buildings;
 	}
+	
+	function update_cash($c_id, $cash) {
+		$this->db->where('id', $c_id);
+		$this->db->update($this->table_name, array('cash' => $cash));
+	}
 }

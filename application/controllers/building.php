@@ -90,8 +90,46 @@ class Building extends CI_Controller {
         // Check inventory for source materials
     }
 	
-	function new() {
-		print_r($this->input->post()); die();
+	function build() {
+		$post = $this->input->post();
+		if (!post) {
+			redirect('/');
+		}
+		
+		$this->load->model('Company_m');
+		
+		$b_id = intval($post['building_type']);
+		$user_id = $this->tank_auth->get_user_id();
+		$price = $this->Building_m->get_building_price($b_id);
+		$comp_info = $this->Company_m->get_company_by_user($user_id);
+		$cash_on_hand = $comp_info->cash;
+		
+		if ((!$price) || (!$comp_info)) {
+			// Either item ID or company ID is wrong
+			redirect('/');
+		}
+		
+		if (($price < 0.01) || ($cash_on_hand < 0.01)) {
+			// Something is retarded with the money
+			redirect('/');
+		}
+		
+		if ($cash_on_hand - $price > 0.00) {
+			// Let's do it!
+			$new_cash_on_hand = $cash_on_hand - $price;
+			$this->Company_m->update_cash($comp_info->id, $new_cash_on_hand);
+			$this->Building_m->new_building($comp_info->id, $b_id, 'factory');
+			
+			$b_name = $this->Building_m->get_building_by_id($b_id);
+			$data['comp_name'] = $comp_info->name;
+			$data['b_name'] = $b_name;
+			
+			$this->template->show('build_success', 'Building Construction', $data);
+		}
+		
+		// Check building price
+		// Check if company has enough money
+		// remove money, insert new building
 	}
     
 }

@@ -39,8 +39,13 @@ class Building_m extends CI_Model {
 		return NULL;
 	}
 	
-	function new_building($c_id, $b_type) {
-
+	function new_building($c_id, $b_id, $b_type) {
+		$data = array(
+			'building_id' => $b_id,
+			'company' => $c_id,
+			'type' => $b_type);
+		$this->db->insert($this->table_name, $data);
+		// TODO: return new id
 	}
 	
 	function get_possible_production($b_id) {
@@ -55,5 +60,15 @@ class Building_m extends CI_Model {
 		if ($result->num_rows() > 0) {
             return $result->result();
         }
+	}
+	
+	function get_building_price($b_id) {
+        $this->db->select('price');
+		$this->db->where('id', $b_id);
+        $query = $this->db->get('buildings');
+        if ($query->num_rows() == 1) {
+            return $query->row();
+        }
+		return NULL;		
 	}
 }
