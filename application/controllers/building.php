@@ -57,6 +57,7 @@ class Building extends CI_Controller {
         $b_id = $post['b_id'];
 
 		$data['info'] = $this->Building_m->get_building_by_id($b_id);
+		$data['b_id'] = $b_id;
         // Array ( [prod_qty] => 100 [choose_prod] => 2 )
         
         // Make sure the player owns that factory.
@@ -74,7 +75,7 @@ class Building extends CI_Controller {
         }
         $can_produce = false;
         foreach ($pos_prod as $key => $product) {
-            if ($product->id == $new_prod['choose_prod']) {
+            if ($product->output_prod == $new_prod['choose_prod']) {
                 $can_produce = true;
                 break;
             }
@@ -97,8 +98,12 @@ class Building extends CI_Controller {
 		}
 		
 		$recipe_array = json_decode($recipe->products_required, $assoc = true);
-		print_r($recipe_array);
-        
+
+		$requirements = array();
+		foreach ($recipe_array as $prod_id => $qty) {
+			$p = $this->Product_m->get_product_id_by_name($p_name);
+			$requirements[$p->id] = $qty;
+		}
 
         // Check inventory for source materials
     }

@@ -16,4 +16,14 @@ class Product_m extends CI_Model {
 		return NULL;
     }
     
+    function get_product_id_by_name($p_name) {
+        $this->db->select('id');
+        $this->db->where('name', $p_name);
+        $query = $this->db->get('products');
+        if ($query->num_rows() == 1) {
+            return $query->row();
+        }
+		return NULL;       
+    }
+    
 }
