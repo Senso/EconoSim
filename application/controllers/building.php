@@ -53,6 +53,7 @@ class Building extends CI_Controller {
         $user_id = $this->tank_auth->get_user_id();
         
         $new_prod = $post;
+        $b_id = $post['b_id'];
         // Array ( [prod_qty] => 100 [choose_prod] => 2 )
         
         // Make sure the player owns that factory.
