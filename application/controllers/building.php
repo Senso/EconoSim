@@ -53,6 +53,7 @@ class Building extends CI_Controller {
         $user_id = $this->tank_auth->get_user_id();
         
         $new_prod = $post;
+		$p_id = $new_prod['choose_prod'];
         $b_id = $post['b_id'];
         // Array ( [prod_qty] => 100 [choose_prod] => 2 )
         
@@ -85,6 +86,11 @@ class Building extends CI_Controller {
             $data['errors'] = "Invalid quantity selected.";
             $this->template->show('building_info', 'Building Info', $data);
         }
+		
+		$this->load->model('Product_m');
+		$recipe = $this->Product_m->get_required_products($p_id);
+		$recipe_array = json_decode($recipe, $assoc = true);
+		print_r($recipe_array);
         
 
         // Check inventory for source materials
