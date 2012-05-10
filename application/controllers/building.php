@@ -92,7 +92,7 @@ class Building extends CI_Controller {
 	
 	function build() {
 		$post = $this->input->post();
-		if (!post) {
+		if (!$post) {
 			redirect('/');
 		}
 		
@@ -109,7 +109,7 @@ class Building extends CI_Controller {
 			redirect('/');
 		}
 		
-		if (($price < 0.01) || ($cash_on_hand < 0.01)) {
+		if (($price->price < 0.01) || ($cash_on_hand < 0.01)) {
 			// Something is retarded with the money
 			redirect('/');
 		}
