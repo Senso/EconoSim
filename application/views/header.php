@@ -21,3 +21,15 @@
 
 <br />
 
+<div id='errors'>
+    <strong>
+    <font color='red'>
+    <?php
+        if (isset($errors)) {
+            echo htmlentities($error);
+        }
+    ?>
+    </font>
+    </strong>
+</div>
+
