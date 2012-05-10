@@ -114,7 +114,7 @@ class Building extends CI_Controller {
 			redirect('/');
 		}
 		
-		if ($cash_on_hand - $price > 0.00) {
+		if ($cash_on_hand - $price->price > 0.00) {
 			// Let's do it!
 			$new_cash_on_hand = $cash_on_hand - $price;
 			$this->Company_m->update_cash($comp_info->id, $new_cash_on_hand);
