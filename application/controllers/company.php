@@ -57,7 +57,7 @@ class Company extends CI_Controller {
 		// List all owned buildings
 		$user_id = $this->tank_auth->get_user_id();
 		$comp = $this->Company_m->get_company_by_user($user_id);
-		$data['c_id'] = $comp;
+		$data['c_id'] = $comp->id;
 		$data['buildings'] = $this->Company_m->get_buildings_by_company($comp->id);
 		
 		// Make the building construction form
