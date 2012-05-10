@@ -26,7 +26,7 @@
     <font color='red'>
     <?php
         if (isset($errors)) {
-            echo htmlentities($error);
+            echo htmlentities($errors);
         }
     ?>
     </font>
