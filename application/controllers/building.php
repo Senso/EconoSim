@@ -6,6 +6,7 @@ class Building extends CI_Controller {
 		parent::__construct();
 
 		$this->load->helper('url');
+        $this->load->helper('form');
 		$this->load->library('tank_auth');
 		$this->load->model('Building_m');
 	}
@@ -27,11 +28,28 @@ class Building extends CI_Controller {
             }
         }
         
+        $data['input_style'] = array(
+            'name'        => 'prod_qty',
+            'id'          => 'prod_qty',
+            'value'       => '1',
+            'maxlength'   => '10',
+            'size'        => '10',
+            'style'       => 'width:50%',  
+        );
+        
         $this->template->show('building_info', 'Building Info', $data);
 	}
     
     function production() {
-        $this->input->post('choose_prod')
+        $post = $this->input->post('choose_prod');
+        if (!$post) {
+            redirect('/');
+        }
+        
+        $new_prod = $post;
+        // Make sure the building is a factory and that it can produce it.
+        
+        
         
     }
     

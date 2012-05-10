@@ -5,10 +5,10 @@
 <br />
 <Strong>Set Production:</strong>
 <form action="/building/production" method="post" accept-charset="utf-8">
-    <?php echo form_dropdown('choose_prod', $select); ?>
+    <?php
+        echo "Quantity: " . form_input($input_style);
+        echo form_dropdown('choose_prod', $select);
+    ?>
     <input type="submit" value="Submit" />
     
 </form>
-    
-    
-?>
