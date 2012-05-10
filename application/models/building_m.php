@@ -20,6 +20,16 @@ class Building_m extends CI_Model {
 		return NULL;
     }
 	
+	function get_building_owner($b_id) {
+		$query = sprintf("SELECT company,(SELECT owner FROM companies WHERE id = company) as owner FROM player_buildings WHERE id = '%s'");
+		
+		$result = $this->db->query($query);
+        if ($result->num_rows() == 1) {
+            return $result->row();
+        }
+		return NULL;
+	}
+	
 	function new_building($c_id, $b_type) {
 
 	}
