@@ -6,6 +6,15 @@ class Building_m extends CI_Model {
         parent::__construct();
 		$this->table_name = 'player_buildings';
     }
+	
+	function get_all_building_types() {
+        $this->db->select('*');
+        $query = $this->db->get('buildings');
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        }
+		return NULL;
+	}
 
     function get_building_by_id($b_id) {
 		$query = sprintf("SELECT player_buildings.id,building_id,type,company,created,

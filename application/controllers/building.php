@@ -86,11 +86,12 @@ class Building extends CI_Controller {
             $this->template->show('building_info', 'Building Info', $data);
         }
         
-        
-        
+
         // Check inventory for source materials
-        
-        
     }
+	
+	function new() {
+		print_r($this->input->post()); die();
+	}
     
 }

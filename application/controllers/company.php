@@ -6,6 +6,7 @@ class Company extends CI_Controller {
 		parent::__construct();
 
 		$this->load->helper('url');
+		$this->load->helper('form');
 		$this->load->library('tank_auth');
 		$this->load->model('Company_m');
 		
@@ -56,9 +57,21 @@ class Company extends CI_Controller {
 		// List all owned buildings
 		$user_id = $this->tank_auth->get_user_id();
 		$comp = $this->Company_m->get_company_by_user($user_id);
-		
+		$data['c_id'] = $comp;
 		$data['buildings'] = $this->Company_m->get_buildings_by_company($comp->id);
-				
+		
+		// Make the building construction form
+		$this->load->model('Building_m');
+		$b_types = $this->Building_m->get_all_building_types();
+		$data['b_types'] = array();
+		foreach($b_types as $key => $b_type) {
+			$data['b_types'][$b_type->id] = $b_type->name;
+		}
+		
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('building_type', 'Building Type', 'required');
+		
+		// Load template
 		$this->template->show('company_buildings', 'Buildings', $data);
 	}
     
