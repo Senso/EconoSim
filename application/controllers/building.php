@@ -116,13 +116,13 @@ class Building extends CI_Controller {
 		
 		if ($cash_on_hand - $price->price > 0.00) {
 			// Let's do it!
-			$new_cash_on_hand = $cash_on_hand - $price;
+			$new_cash_on_hand = $cash_on_hand - $price->price;
 			$this->Company_m->update_cash($comp_info->id, $new_cash_on_hand);
 			$this->Building_m->new_building($comp_info->id, $b_id, 'factory');
 			
 			$b_name = $this->Building_m->get_building_by_id($b_id);
 			$data['comp_name'] = $comp_info->name;
-			$data['b_name'] = $b_name;
+			$data['b_name'] = $b_name->name;
 			
 			$this->template->show('build_success', 'Building Construction', $data);
 		}
