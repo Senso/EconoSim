@@ -96,7 +96,7 @@ class Building extends CI_Controller {
             $this->template->show('building_info', 'Building Info', $data);		
 		}
 		
-		$recipe_array = json_decode($recipe, $assoc = true);
+		$recipe_array = json_decode($recipe->products_required, $assoc = true);
 		print_r($recipe_array);
         
 
