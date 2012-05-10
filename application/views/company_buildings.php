@@ -5,7 +5,7 @@
     echo form_open('building/new');
     echo form_hidden('c_id', $c_id);
     echo form_dropdown('building_type', $b_types);
-    echo form_submit();
+    echo form_submit('build_submit', 'Build');
 ?>
 
 <h3>Factories</h3>
