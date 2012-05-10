@@ -37,7 +37,7 @@ class Company_m extends CI_Model {
 		$buildings = NULL;
 		
 		$query = sprintf("SELECT player_buildings.id,building_id,type,
-			(select name from buildings where player_buildings.id = building_id) as name
+			(select name from buildings where player_buildings.building_id = buildings.id) as name
 			from player_buildings
 			WHERE company = '%s'", mysql_real_escape_string($c_id));
 		$result = $this->db->query($query);
