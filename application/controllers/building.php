@@ -123,6 +123,10 @@ class Building extends CI_Controller {
 		}
 		
 		// So if we got here, we should be good to go.
+		// Withdraw the cost from the company
+		// Remove the required items
+		// SET the building to 'busy'
+		// INSERT into production_queue
 
     }
 	
