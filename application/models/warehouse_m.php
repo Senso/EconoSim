@@ -15,5 +15,15 @@ class Warehouse_m extends CI_Model {
         }
 		return NULL;
     }
+	
+	function get_qty_per_product($c_id, $p_id) {
+        $this->db->where('company', $c_id);
+		$this->db->where('product', $p_id);
+        $query = $this->db->get($this->table_name);
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        }
+		return 0;
+	}
     
 }
