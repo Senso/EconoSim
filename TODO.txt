@@ -2,7 +2,6 @@
 
 == First steps ==
 - Create a few default products with which to test production/selling
-- make sure all input/output is sanitized, special chars removed, etc.
 - cron script that populates the market with products missing
 - 'guest' header, for login/reg pages
 - added an autoloaded function that created an obj with user id, comp id, etc.
