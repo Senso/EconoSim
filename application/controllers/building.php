@@ -103,13 +103,27 @@ class Building extends CI_Controller {
             $this->template->show('building_info', 'Building Info', $data);	
 		}
 
+		// Check inventory for source materials
+		$this->load->model('Warehouse_m');
+		
 		$requirements = array();
-		foreach ($recipe_array as $p_name => $qty) {
+		foreach ($recipe_array as $p_name => $qty_req) {
 			$p = $this->Product_m->get_product_id_by_name($p_name);
-			$requirements[$p->id] = $qty;
-		}
+			$qty_on_hand = $this->get_qty_per_product($ownership->company, $p->id);
 
-        // Check inventory for source materials
+			// The actual required qty
+			$qty_req = $qty_req * intval($post['prod_qty']);
+			
+			// Missing parts of the recipe
+			if (($qty_on_hand < 1) || ($qty_req > $qty_on_hand)) {
+				$data['errors'] = "Missing items required to produce that.";
+				$this->template->show('building_info', 'Building Info', $data);
+				return NULL;
+			}
+		}
+		
+		// So if we got here, we should be good to go.
+
     }
 	
 	function build() {
