@@ -22,5 +22,7 @@
 - barebone market page
 - basic form for production choosing, in factories
 - Basic warehouse pages
+- warehouse table
 - basic factory construction
 - Companies start with $1M
+- added production_queue table
