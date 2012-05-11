@@ -1,10 +1,7 @@
 === TODO ===
 
 == First steps ==
-- Make placeholder pages for:
-    * Industry building
 - Create a few default products with which to test production/selling
-- Add starting cash to new companies
 - make sure all input/output is sanitized, special chars removed, etc.
 - cron script that populates the market with products missing
 - 'guest' header, for login/reg pages
@@ -27,3 +24,4 @@
 - basic form for production choosing, in factories
 - Basic warehouse pages
 - basic factory construction
+- Companies start with $1M
